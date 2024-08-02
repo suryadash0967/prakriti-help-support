@@ -345,50 +345,6 @@ li img {
     margin-right: 10px;
 }
 
-.query-submit-wrapper{
-    width: fit-content;
-    margin: auto;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.text-area{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.query-submit-wrapper textarea{
-    color: #fff;
-    font-family: 'Poppins';
-    font-size: 15px;
-    overflow-y: hidden;
-    scrollbar-width: 0px;
-    resize: none;
-    outline: none;
-    border-radius: 20px;
-    border: none;
-    background-color: #6E7753;
-    padding: 10px;
-}
-
-.query-submit-wrapper button{
-    
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -396,19 +352,23 @@ li img {
 
 
 .faq {
+    border: none;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
 }
 
 .faq-item {
+    border: none;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    /* border: 1px solid #ddd; */
+    border-radius: 20px;
     height: fit-content;
 }
 
 .faq-question {
+    border-radius: 20px;
+    border: none;
     width: 100%;
     padding: 15px;
     font-size: 18px;
@@ -425,6 +385,7 @@ li img {
 }
 
 .faq-answer {
+    border-radius: 20px;
     max-height: 0;
     overflow: hidden;
     padding: 0 15px;    
@@ -517,7 +478,95 @@ li img {
 }
 
 
+.review-container {
+    font-family: Montserrat;
+    width: 100%;
+    margin: 3rem 0;
+    margin-bottom: 20px;
+}
 
+.review-container img,
+.textarea img{
+    width: 90px;
+    clip-path: circle(30px);
+    overflow: hidden;
+    position: relative;
+}
+.review {
+    background: #6E7753;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 70%;
+    padding: 1rem 1rem;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    color: #FAF0BD;
+}
+textarea {
+    font-family: Montserrat;
+    width: 70%;
+    height: 4rem;
+    font-size: 16px;
+    display: flex;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF0BD;
+    resize: none;
+    outline: none;
+    color: #6E7753;
+}
+
+.textarea{
+    width: 100%;
+    display: flex;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    color: #6E7753;
+}
+
+.post-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: min-content;
+    background-color: #FAF0BD;
+    border: 2px solid #6E7753;
+    border-radius: 20px;
+    width: 70%;
+}
+
+.post-button i {
+    font-size: 24px;
+    margin-left: 5px;
+    color: #6E7753;
+    cursor: pointer;
+}
+.post-button bx-laugh {
+    font-size: 24px;
+    margin-left: 5px;
+    transform: rotate(-45deg);
+}
+
+.textarea-controls{
+    margin-right: 1rem;
+}
+
+#posts{
+    display: flex;
+    flex-direction: column;
+}
+
+.post{
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+    /* margin: 1rem 0; */
+}
 
 
 

@@ -191,18 +191,26 @@
 
 
 
-        <div class="query-submit-wrapper">
-            <div class="text-area">
-                <div class="submitQuery">Submit Your Query Here:</div>
-                <textarea name="query" id="queryInput" cols="50" rows="4"></textarea>
+
+
+            <div class="textarea">
+                <div class="post-button" onkeypress="">
+                    <textarea id="newReview" onkeypress="handleKeyPress(event)"
+                        placeholder="Add your query"></textarea>
+                    <div class="textarea-controls">
+                        <i class='bx bx-laugh'></i>
+                        <i class='bx bx-paperclip'></i>
+                        <i class='bx bxs-send' onclick="submitQuery()"></i>
+                    </div>
+                </div>
             </div>
 
-            <div><button class="load-more" onclick="submitQuery()">SUBMIT</button></div>
-            <div    class="load-more-message">
+            <div   class="load-more-message">
                 <h2>Your query has been submitted!</h2>
                 <p>We will get back to you soon</p>
             </div>
-        </div>
+
+
 
 
 
@@ -305,6 +313,10 @@
 
 
 
+
+
+
+
         <div class="line-before-footer"></div>
 
         <div class="footer-wrapper">
@@ -385,23 +397,31 @@
 
 
 
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            var textareaText = document.querySelector("#newReview");
+            textareaText.focus();
+        });
+
         function submitQuery() {
 
-            var textareaText = document.querySelector("#queryInput");
+            var textareaText = document.querySelector("#newReview");
             if(textareaText.value === "") return;
-
-            console.log("Loading more content...");
 
             var caughtUpMessage = document.querySelector(".load-more-message");
             if(caughtUpMessage)
             caughtUpMessage.classList.add('show');
 
+            textareaText.value = "";
+            textareaText.focus();
             setTimeout(function () {
                 caughtUpMessage.classList.add('hide');
                 setTimeout(function () {
                     caughtUpMessage.classList.remove('show', 'hide');
                 }, 300); // Wait for the transition to complete before removing classes
             }, 5000); // 5000 milliseconds = 5 seconds
+
         }
 
         function handleBuyNowBtnClick() {
@@ -429,6 +449,41 @@
                 });
             });
         });
+
+        function postReview() {
+            var newReviewText = document.getElementById('newReview').value.trim();
+            if (newReviewText !== "") {
+                var newReviewDiv = document.createElement('div');
+                var newReviewDiv2 = document.createElement('div');
+                var newReviewDiv3 = document.createElement('div');
+                var newReviewDiv4 = document.createElement('div');
+                var newReviewImg = document.createElement('img');
+
+                newReviewDiv3.innerHTML = "<b>Username</b>";
+                newReviewImg.src = "person3.jpeg";
+
+                newReviewDiv4.textContent = newReviewText;
+                newReviewDiv.classList.add('review');
+                newReviewDiv2.classList.add('post');
+                newReviewDiv3.classList.add('username');
+                newReviewDiv4.classList.add('review-text');
+
+                newReviewDiv.appendChild(newReviewDiv3);
+                newReviewDiv.appendChild(newReviewDiv4);
+                newReviewDiv2.appendChild(newReviewImg);
+                newReviewDiv2.appendChild(newReviewDiv);
+
+                document.getElementById('posts').appendChild(newReviewDiv2);
+                document.getElementById('newReview').value = "";
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the default action of the Enter key (which is to create a new line)
+                submitQuery();
+            }
+        }
 
     </script>
 
