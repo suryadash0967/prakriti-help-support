@@ -95,7 +95,7 @@
 
 
                 <a href="#">
-                    <li>Help and Support</li>
+                    <li>Help & Support</li>
                 </a>
                 <a href="https://suryadash0967.github.io/prakriti-orders/">
                     <li>Orders <i class="fa-solid fa-bag-shopping"></i></li>
@@ -171,7 +171,7 @@
 
             </div>
 
-            <div class="options wishlist"><a href="#">Help and Support</a></div>
+            <div class="options wishlist"><a href="#">Help & Support</a></div>
             <div class="options orders"><a href="https://suryadash0967.github.io/prakriti-orders/">Orders</a></div>
         </div>
     </div>
@@ -197,7 +197,7 @@
                 <textarea name="query" id="queryInput" cols="50" rows="4"></textarea>
             </div>
 
-            <div><button class="load-more" onclick="loadMore()">SUBMIT</button></div>
+            <div><button class="load-more" onclick="submitQuery()">SUBMIT</button></div>
             <div    class="load-more-message">
                 <h2>Your query has been submitted!</h2>
                 <p>We will get back to you soon</p>
@@ -385,10 +385,15 @@
 
 
 
-        function loadMore() {
+        function submitQuery() {
+
+            var textareaText = document.querySelector("#queryInput");
+            if(textareaText.value === "") return;
+
             console.log("Loading more content...");
 
             var caughtUpMessage = document.querySelector(".load-more-message");
+            if(caughtUpMessage)
             caughtUpMessage.classList.add('show');
 
             setTimeout(function () {
